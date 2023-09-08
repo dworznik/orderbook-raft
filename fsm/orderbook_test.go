@@ -53,8 +53,6 @@ func Test(t *testing.T) {
 			cmd := &Command{}
 			err := json.Unmarshal([]byte(`{ "op": "UNKNOWN", "id": "id"  }`), &cmd)
 			Ω(err.Error()).Should(Equal("invalid op"))
-
 		})
-
 	})
 }

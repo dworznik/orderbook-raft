@@ -46,7 +46,7 @@ type requestCancel struct {
 func (h handler) Limit(c echo.Context) error {
 	startTime := time.Now()
 
-	var form = requestLimit{}
+	form := requestLimit{}
 
 	if err := c.Bind(&form); err != nil {
 		return c.JSON(http.StatusUnprocessableEntity, responseBase{"error", fmt.Sprintf("invalid input: %s", err.Error()), time.Since(startTime).Milliseconds()})
@@ -67,7 +67,6 @@ func (h handler) Limit(c echo.Context) error {
 	}
 
 	data, err := json.Marshal(&payload)
-
 	if err != nil {
 		return c.JSON(http.StatusUnprocessableEntity, map[string]interface{}{
 			"error": fmt.Sprintf("error preparing saving data payload: %s", err.Error()),
@@ -106,7 +105,7 @@ func (h handler) Limit(c echo.Context) error {
 func (h handler) Cancel(c echo.Context) error {
 	startTime := time.Now()
 
-	var form = requestCancel{}
+	form := requestCancel{}
 
 	if err := c.Bind(&form); err != nil {
 		return c.JSON(http.StatusUnprocessableEntity, responseBase{"error", fmt.Sprintf("invalid input: %s", err.Error()), time.Since(startTime).Milliseconds()})
@@ -127,7 +126,6 @@ func (h handler) Cancel(c echo.Context) error {
 	}
 
 	data, err := json.Marshal(&payload)
-
 	if err != nil {
 		return c.JSON(http.StatusUnprocessableEntity, map[string]interface{}{
 			"error": fmt.Sprintf("error preparing saving data payload: %s", err.Error()),

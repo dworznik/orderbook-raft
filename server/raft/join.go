@@ -16,7 +16,7 @@ type requestJoin struct {
 
 // JoinRaftHandler handling join raft
 func (h handler) JoinRaftHandler(c echo.Context) error {
-	var form = requestJoin{}
+	form := requestJoin{}
 	if err := c.Bind(&form); err != nil {
 		return c.JSON(http.StatusUnprocessableEntity, map[string]interface{}{
 			"error": fmt.Sprintf("error binding: %s", err.Error()),

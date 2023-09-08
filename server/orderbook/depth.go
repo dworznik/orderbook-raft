@@ -23,7 +23,7 @@ type responseDepth struct {
 func (h handler) Depth(c echo.Context) error {
 	startTime := time.Now()
 
-	var form = requestLimit{}
+	form := requestLimit{}
 	if err := c.Bind(&form); err != nil {
 		return c.JSON(http.StatusUnprocessableEntity, map[string]interface{}{
 			"error": fmt.Sprintf("error binding: %s", err.Error()),

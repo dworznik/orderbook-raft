@@ -75,8 +75,7 @@ const (
 // main entry point of application start
 // run using CONFIG=config.yaml ./program
 func main() {
-
-	var v = viper.New()
+	v := viper.New()
 	v.AutomaticEnv()
 	if err := v.BindEnv(confKeys...); err != nil {
 		log.Fatal(err)
@@ -101,7 +100,7 @@ func main() {
 	// Preparing OrderBook
 	ob := orderbook.NewOrderBook()
 
-	var raftBinAddr = fmt.Sprintf("%s:%d", conf.Raft.Addr, conf.Raft.Port)
+	raftBinAddr := fmt.Sprintf("%s:%d", conf.Raft.Addr, conf.Raft.Port)
 
 	raftConf := raft.DefaultConfig()
 	raftConf.LocalID = raft.ServerID(conf.Raft.NodeId)

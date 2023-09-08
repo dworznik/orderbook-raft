@@ -33,8 +33,12 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
 	golang.org/x/crypto v0.11.0 // indirect
+	golang.org/x/mod v0.10.0 // indirect
+	golang.org/x/sync v0.2.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
+	golang.org/x/tools v0.9.3 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
+	mvdan.cc/gofumpt v0.5.0 // indirect
 )
 
 require (

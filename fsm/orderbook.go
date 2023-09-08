@@ -19,7 +19,6 @@ type Command struct {
 }
 
 func (c *Command) UnmarshalJSON(data []byte) error {
-
 	cmd := struct {
 		Op    string          `json:"op"`
 		Order orderbook.Order `json:"order"`
@@ -80,7 +79,7 @@ type orderbookFSM struct {
 func (ob *orderbookFSM) Apply(log *raft.Log) interface{} {
 	switch log.Type {
 	case raft.LogCommand:
-		var cmd = Command{}
+		cmd := Command{}
 		if err := json.Unmarshal(log.Data, &cmd); err != nil {
 			_, _ = fmt.Fprintf(os.Stderr, "error marshalling command %s\n", err.Error())
 			return nil
