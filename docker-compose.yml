@@ -1,0 +1,97 @@
+version: '3.8'
+
+x-shared-config: &shared-config
+  build:
+    context: .
+    dockerfile: Dockerfile
+    args:
+      RAFT_VOL_DIR: /app/raft_data
+  cap_add:
+    - NET_ADMIN
+
+x-shared-vars: &shared-vars
+  SERVER_PORT: 8080
+  RAFT_PORT: 1111
+  RAFT_VOL_DIR: /app/raft_data
+
+services:
+  node-01:
+    <<: *shared-config
+    ports:
+      - "8081:8080"
+    environment: 
+      <<: *shared-vars
+      RAFT_NODE_ID: 1
+      RAFT_ADDR: node-01
+  node-02:
+    <<: *shared-config
+    ports:
+      - "8082:8080"
+    environment: 
+      <<: *shared-vars
+      RAFT_NODE_ID: 2
+      RAFT_ADDR: node-02
+  node-03:
+    <<: *shared-config
+    ports:
+      - "8083:8080"
+    environment: 
+      <<: *shared-vars
+      RAFT_NODE_ID: 3
+      RAFT_ADDR: node-03
+  node-04:
+    <<: *shared-config
+    ports:
+      - "8084:8080"
+    environment: 
+      <<: *shared-vars
+      RAFT_NODE_ID: 4
+      RAFT_ADDR: node-04
+  node-05:
+    <<: *shared-config
+    ports:
+      - "8085:8080"
+    environment: 
+      <<: *shared-vars
+      RAFT_NODE_ID: 5
+      RAFT_ADDR: node-05
+  node-06:
+    <<: *shared-config
+    ports:
+      - "8086:8080"
+    environment: 
+      <<: *shared-vars
+      RAFT_NODE_ID: 6
+      RAFT_ADDR: node-06
+  node-07:
+    <<: *shared-config
+    ports:
+      - "8087:8080"
+    environment: 
+      <<: *shared-vars
+      RAFT_NODE_ID: 7
+      RAFT_ADDR: node-07
+  node-08:
+    <<: *shared-config
+    ports:
+      - "8088:8080"
+    environment: 
+      <<: *shared-vars
+      RAFT_NODE_ID: 8
+      RAFT_ADDR: node-08
+  node-09:
+    <<: *shared-config
+    ports:
+      - "8089:8080"
+    environment: 
+      <<: *shared-vars
+      RAFT_NODE_ID: 9
+      RAFT_ADDR: node-09
+  node-10:
+    <<: *shared-config
+    ports:
+      - "8090:8080"
+    environment: 
+      <<: *shared-vars
+      RAFT_NODE_ID: 10
+      RAFT_ADDR: node-10
